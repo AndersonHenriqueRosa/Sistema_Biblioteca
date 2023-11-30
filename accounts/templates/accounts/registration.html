@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+    
+</head>
+<body>
+
+    <header>    
+        
+    </header>
+    
+    <main>
+        
+        <form  class="registration-form" method="POST" action="{% url '' %}">{% csrf_token %}
+            <div class="registration-username">
+                <label >Nome</label>
+                <input class="registration-input" name="username" type="text" placeholder="Nome">
+            </div>
+            <div class="registration-email">
+                <label>Email</label>
+                <input  class="registration-input" name="email" type="text" placeholder="Email">
+            </div>
+            <div class="registration-password">
+                <label>Senha</label>
+                <input  class="registration-input" name="password" type="password" placeholder="Informe a senha">
+            </div>
+            <div class="registration-password-again">
+                <label >Confirmar Senha</label>
+                <input  class="registration-input" name="repeat-password" type="password" placeholder="Confirmar Senha">
+            </div>
+            <button type="submit" class="btn-login">Acessar</button>
+        </form>
+        <p class="login-registration">Já possui conta? <a href="{% url 'login' %}">Entrar</a></p>
+    </div>  
+    </main>
+    
+    <footer>
+        
+    </footer>
+    
+</body>
+</html>

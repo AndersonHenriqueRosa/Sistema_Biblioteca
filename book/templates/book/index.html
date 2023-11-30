@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+</head>
+<body>
+    <h1>{{user}}</h1>
+    <header>    
+        <nav class="navbar">
+            <a href="{% url 'home' %}"><h1>Biblioteca</h1></a>
+            <form role="search" action="{% url 'search-book' %}">
+                <input type="search" name="q">
+                <button type="submit">Buscar</button>
+                <button><a href="{% url 'stockless' %}" role="button">Sem acervo</a></button>
+            </form>
+        </nav>
+        <h1><a href="{% url 'logout' %}">Sair</a></h1>
+    </header>
+    <main>
+        <section class="book-table">
+            <h2>Livros Cadastrados</h2>
+            <table class="table-books-details">
+                <thead>
+                    <tr>
+                        <th class="table-th">Código</th>
+                        <th class="table-th">Nome</th>
+                        <th class="table-th">Autor</th>
+                        <th class="table-th">Genero</th>
+                        <th class="table-th">Resumo</th>
+                        <th class="table-th">Disponivel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for produto in produtos %}
+                    <tr>
+                        <td class="table-td">{{bokk.cod}}</td>
+                        <td class="table-td"><a href="{% url 'book-detail' book.id %}">{{book.name}}</a></td>
+                        <td class="table-td">{{book.author}}</td>
+                        <td class="table-td">{{book.literary_genres}}</td>
+                        <td class="table-td">{{book.summary}}</td>
+                        <td class="table-td">{{book.in_stock}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>    
+            </table>
+            {% if user.is_authenticated %}
+            <a class="add-button" href="{% url 'add-book' %}" type="submit">Adicionar Livro</a>
+            {% endif %}
+        </section>
+    </main>
+    <footer>
+        
+    </footer>
+
+
+</body>
+</html>

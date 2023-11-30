@@ -1,0 +1,44 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GRÊMIO DJANGO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <header>    
+        
+    </header>
+    <main>
+        <div class="login-container">
+            {% if messages %}
+                {% for message in messages %}
+                <h3>{{message}}</h3>
+                {% endfor %}
+            {% endif %}
+            <h1>Login</h1>
+            <form method="POST" action="{% url '' %}">{% csrf_token %}
+                
+                <div class="login-email">
+                    <label>Email</label>
+                    <input name="email" type="text" placeholder="Email">
+                </div>
+                <div class="login-password">
+                    <label>Senha</label>
+                    <input name="password" type="password" placeholder="Informe a senha">
+                </div>
+                <button type="submit" class="btn-login">Acessar</button>
+            </form>
+            <p class="login-registration">Não tem uma conta? <a href="{% url 'registration' %}">Cadastre-se</a></p>
+        </div>
+    </main>
+    
+
+</body>
+</html>
