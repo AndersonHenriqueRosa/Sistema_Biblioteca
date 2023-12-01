@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="book_card">
+        <div class="img">
+            <img src="{{book.cover.url}}" alt="">
+        </div>
+        <div class="book_detail">
+            
+            <div class="title"></div>
+                <h1>Titulo: {{book.title}}</h1>
+                <h1>Autor: {{book.author}}</h1>
+            </div>
+            <div class="lend">
+                <a href="">Emprestar</a>
+            </div>
+            <div class="summary">
+                <h1>Resumo: {{book.summary}}</h1>
+                <h1>Genero: {{book.literary_genres}}</h1>
+             </div>
+
+        </div>
+    
+</body>
+</html>

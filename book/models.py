@@ -25,7 +25,7 @@ class Books(models.Model):
     publication_date = models.DateField()
     created_at = models.DateField(auto_now_add=True)
     in_stock = models.BooleanField(default= False)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
+
     
     def __str__(self):
         return self.title
@@ -33,3 +33,13 @@ class Books(models.Model):
     class Meta:
         verbose_name = 'Book'
     
+class Lending(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
+    book_lending = models.ForeignKey(Books, on_delete=models.CASCADE, blank=True)
+    created_at = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.book_lending
+    
+    class Meta:
+        verbose_name = 'Lending'

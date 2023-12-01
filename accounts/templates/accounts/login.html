@@ -6,10 +6,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GRÊMIO DJANGO</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'css/global.css' %}">
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <title></title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"> -->
+    <!-- <link rel="stylesheet" href="{% static 'css/global.css' %}"> -->
+    <!-- <link rel="stylesheet" href="{% static 'css/login.css' %}"> -->
 </head>
 <body>
     <header>    
@@ -23,11 +23,11 @@
                 {% endfor %}
             {% endif %}
             <h1>Login</h1>
-            <form method="POST" action="{% url '' %}">{% csrf_token %}
+            <form method="POST">{% csrf_token %}
                 
-                <div class="login-email">
-                    <label>Email</label>
-                    <input name="email" type="text" placeholder="Email">
+                <div class="login-name">
+                    <label>Nome</label>
+                    <input name="username" type="text" placeholder="Nome">
                 </div>
                 <div class="login-password">
                     <label>Senha</label>
