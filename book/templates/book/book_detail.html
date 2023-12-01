@@ -11,20 +11,20 @@
     
     <div class="book_card">
         <div class="img">
-            <img src="{{book.cover.url}}" alt="">
+            {% comment %} <img src="{{books.cover.url}}" alt="">  {% endcomment %}
         </div>
         <div class="book_detail">
             
             <div class="title"></div>
-                <h1>Titulo: {{book.title}}</h1>
-                <h1>Autor: {{book.author}}</h1>
+                <h1>Titulo: {{books.title}}</h1>
+                <h2>Autor: {{books.author}}</h2>
             </div>
             <div class="lend">
                 <a href="">Emprestar</a>
             </div>
             <div class="summary">
-                <h1>Resumo: {{book.summary}}</h1>
-                <h1>Genero: {{book.literary_genres}}</h1>
+                <p>Resumo: {{books.summary}}</p>
+                <h3>Genero: {{books.literary_genres}}</h3>
              </div>
 
         </div>

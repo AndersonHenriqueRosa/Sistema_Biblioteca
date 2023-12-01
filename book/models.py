@@ -21,7 +21,7 @@ class Books(models.Model):
     literary_genres = models.ForeignKey(Genres, on_delete=models.CASCADE, blank=True)
     number_page = models.IntegerField()
     quantity_book = models.IntegerField()
-    cover = models.ImageField(upload_to="book-cover/", null=True, blank=True)
+    cover = models.ImageField(blank=True)
     publication_date = models.DateField()
     created_at = models.DateField(auto_now_add=True)
     in_stock = models.BooleanField(default= False)
