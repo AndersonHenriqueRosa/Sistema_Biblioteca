@@ -18,10 +18,10 @@ class Books(models.Model):
     title = models.CharField(max_length= 80) 
     author = models.CharField(max_length= 30)
     summary = models.TextField(blank= True)
-    literary_genres = models.ForeignKey(Genres, on_delete=models.CASCADE, blank=True)
+    literary_genres = models.ForeignKey(Genres, on_delete=models.DO_NOTHING, blank=True)
     number_page = models.IntegerField()
     quantity_book = models.IntegerField()
-    cover = models.ImageField(blank=True)
+    cover = models.ImageField(upload_to="book_images/", null=True, blank=True)
     publication_date = models.DateField()
     created_at = models.DateField(auto_now_add=True)
     in_stock = models.BooleanField(default= False)
@@ -34,12 +34,13 @@ class Books(models.Model):
         verbose_name = 'Book'
     
 class Lending(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
-    book_lending = models.ForeignKey(Books, on_delete=models.CASCADE, blank=True)
-    created_at = models.DateField(auto_now_add=True)
+    user_lend = models.ForeignKey(User, on_delete=models.CASCADE, blank=True)
+    book_lend = models.ForeignKey(Books, on_delete=models.CASCADE, blank=True)
+    date_Lend = models.DateField(auto_now_add=True)
+    # date_return = models.DateField()
 
     def __str__(self):
-        return self.book_lending
+        return f'{self.book_lend} | {self.user_lend}'
     
     class Meta:
         verbose_name = 'Lending'

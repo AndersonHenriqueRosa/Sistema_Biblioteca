@@ -16,17 +16,22 @@
         <div class="book_detail">
             
             <div class="title"></div>
-                <h1>Titulo: {{books.title}}</h1>
-                <h2>Autor: {{books.author}}</h2>
+                <h1>Titulo: {{book.title}}</h1>
+                <h2>Autor: {{book.author}}</h2>
             </div>
             <div class="lend">
-                <a href="">Emprestar</a>
+                <a href="{% url 'book_Lending' book.id %}">Emprestar</a>
             </div>
             <div class="summary">
-                <p>Resumo: {{books.summary}}</p>
-                <h3>Genero: {{books.literary_genres}}</h3>
+                <p>Resumo: {{book.summary}}</p>
+                <h3>Genero: {{book.literary_genres}}</h3>
              </div>
 
+        </div>
+        <div class="card">
+            <div class="card-button">
+                <a href="{% url 'home' %}" type="submit">Voltar</a>
+            </div>   
         </div>
     
 </body>

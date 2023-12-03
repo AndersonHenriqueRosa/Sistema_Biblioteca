@@ -1,0 +1,65 @@
+{% load static %}
+{% load filter  %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- <link rel="stylesheet" href="{% static 'css/global.css' %}"> -->
+</head>
+<body>
+    
+    <header> 
+        
+        
+    </header>
+    <main>
+        <section class="renew_lending-table">
+            <h2>Renovação </h2>
+            <table class="table-books-renew_lending">
+                <thead>
+                    <tr>
+                        <th class="table-th">Código</th>
+                        <th class="table-th">Titulo</th>
+                        <th class="table-th">Autor</th>
+                        <th class="table-th">Genero</th>
+                        <th class="table-th">Quantidade</th>
+                        <th class="table-th">Data de emprestimo</th>
+                        <th class="table-th">Data de devolução</th>
+                        <th class="table-th">Usuário</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td class="table-td">{{lending.book_lend.id}}</td>
+                        <td class="table-td">{{book.title}}</td>
+                        <td class="table-td">{{book.author}}</td>
+                        <td class="table-td">{{book.literary_genres}}</td>
+                        <td class="table-td">{{book.quantity_book}}</td>
+                        <td class="table-td">{{lending.date_Lend}}</td>
+                        <td class="table-td">{{lending.date_Lend|date_return}}</td>
+                        <td class="table-td">{{lending.user_lend}}</td>
+                    </tr>
+                    
+                </tbody>    
+            </table>
+        </section>
+        <div class="card">
+            <div class="card-button">
+                <button type="submit">Renova</button>
+                <a href="{% url 'book-detail' book.id %}" type="submit">Voltar</a>
+            </div>   
+        </div>
+    </main>
+    <footer>
+        
+    </footer>
+
+
+</body>
+</html>

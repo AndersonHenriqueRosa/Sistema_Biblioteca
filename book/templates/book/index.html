@@ -50,7 +50,7 @@
                 </tbody>    
             </table>
             {% if user.is_authenticated %}
-            <a class="add-button" href="" type="submit">Adicionar Livro</a>
+            <a class="add-button" href="{% url 'add-books' %}" type="submit">Adicionar Livro</a>
             {% endif %}
         </section>
     </main>
